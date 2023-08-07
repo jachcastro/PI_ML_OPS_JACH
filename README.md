@@ -1,20 +1,21 @@
 ![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
-<H1>PROYECTO INDIVIDUAL Nº1 </H1>
-<H1> Machine Learning Operations (MLOps)</H1>
-Indice:
+# PROYECTO INDIVIDUAL Nº1 
+# Machine Learning Operations (MLOps) 
 
-1. Introducción. 
+- Introducción. 
 
-2. Transformaciones. 
+- Transformaciones. 
 
-3. Desarrollo API. }
+- Desarrollo API. 
 
-4. Análisis exploratorio de los datos. 
+- Análisis exploratorio de los datos. 
 
-5. Sistema de recomendación. 
+- Sistema de recomendación. 
 
-6. Enlaces. 
+- Enlaces. 
 
-7. Referencias. 
+- Referencias. 
 
+-- Introducción 
+El ciclo de vida de un proyecto de Machine Learning debe contemplar desde el tratamiento y recolección de los datos (Data Engineer stuff) hasta el entrenamiento y mantenimiento del modelo de ML según llegan nuevos datos.
