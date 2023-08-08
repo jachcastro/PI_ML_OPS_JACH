@@ -40,8 +40,9 @@ Se implementan dos modelos
 y para el API quedaría
 
 ## Enlaces
-- Video
 - API
+    https://pi-ml-ops-na32.onrender.com/
+- Video
 - Repositorio
 - Datasets 
 
