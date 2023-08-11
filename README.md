@@ -35,16 +35,34 @@ Para hacer una consulta de recomendacoón nos basaremos en dos formas
 - en base al titulo y contenido
 obtendremos los datasets necesarios para ser consumidos por el modelo resultante 
 
+Se analizaron los campos por separado:
+- Numerico
+- Categorico
+- Fecha
+
+Se analizo todos los campos de todos los CSV 
+
+
 ## Sistema de recomendación
 Se implementan dos modelos
 y para el API quedaría
 
 ## Enlaces
+
 - API
-    https://pi-ml-ops-na32.onrender.com/
+    - https://pi-ml-ops-na32.onrender.com/docs
 - Video
 - Repositorio
+    - https://github.com/jachcastro/PI_ML_OPS_JACH/blob/main/README.md
 - Datasets 
+    - https://drive.google.com/drive/folders/1QqJKcEb8_8_VXuecfCz_ppcAxDxiuSc0?usp=sharing
 
 ## Referencias
-Enlces de todo lo consultado
+Enlces de todo lo consultado:
+- https://www.youtube.com/watch?v=wBu0hQQVdcE
+- https://www.youtube.com/watch?v=aatztrDAz4I
+- https://www.aprendemachinelearning.com/sistemas-de-recomendacion/
+- https://www.facebook.com/watch/live/?ref=watch_permalink&v=461797502778635
+- https://www.kaggle.com/code/ryoaoki1/sistema-de-recomendaci-n-de-pel-culas/notebook
+
+Escuchando a 2X, super concentrado, lo disfute

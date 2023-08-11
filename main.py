@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
-app = FastAPI()
+app = FastAPI(title = "PI ML OPS", 
+              description = "Javier Castro Hermoza")
 
 @app.get('/peliculas_idioma/{idioma}')
 def peliculas_idioma(idioma:str):
@@ -131,10 +134,8 @@ def productoras_exitosas(Productora: str):
 
     return f"La productora {Productora} ha tenido un revenue total de {revenue_total:,.0f} millones y ha realizado {cantidad_peliculas} películas."
 
-
-
-@app.get('/get_director/{nombre_director}')
-def get_director(Nombre_Director: str):
+@app.get('/obtener_director/{nombre_director}')
+def obtener_director(Nombre_Director: str):
     ''' Se ingresa el nombre de un director que se encuentre dentro de un dataset debiendo devolver el éxito del mismo medido a través del retorno. 
     Además, deberá devolver el nombre de cada película con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma. En formato lista'''
     # def get_director( Nombre_Director ): 
@@ -180,7 +181,29 @@ def get_director(Nombre_Director: str):
     return exito_director, peliculas_info
 
 # ML
-@app.get('/recomendacion/{titulo}')
-def recomendacion(titulo:str):
+merged_df = pd.read_csv("5_datasets_ml/movies_dataset_cleaned_ml.csv")
+# Seleccionar los primeros n registros
+half_rows = int(len(merged_df) * 0.9)
+merged_df = merged_df.head(half_rows)
+
+# Crear una matriz TF-IDF para las descripciones de las películas
+tfidf_vectorizer = TfidfVectorizer(stop_words='english')
+tfidf_matrix = tfidf_vectorizer.fit_transform(merged_df['title'])
+
+# Calcular la similitud del coseno entre las descripciones
+cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
+
+@app.get('/Recomendar_Pelicula/{titulopelicula}')
+def Recomendar_Pelicula(TituloPelicula:str):
     '''Ingresas un nombre de pelicula y te recomienda las similares en una lista'''
-    return {'lista recomendada'}
+    if not isinstance(TituloPelicula, str):
+        return "El parámetro 'TituloPelicula' debe ser un string."
+    if merged_df[merged_df['title'].str.lower() == TituloPelicula.lower()].shape[0]  == 0:
+        return [] 
+    idx = merged_df[merged_df['title'].str.lower() == TituloPelicula.lower()].index[0]  # Obtener el índice de la película
+    sim_scores = list(enumerate(cosine_sim[idx]))  # Obtener los puntajes de similitud
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)  # Ordenar por similitud
+    sim_scores = sim_scores[1:6]  # Obtener las 05 películas más similares (excluyendo la misma película)
+    movie_indices = [i[0] for i in sim_scores]  # Obtener los índices de las películas similares
+    return merged_df['title'].iloc[movie_indices]  # Devolver los títulos de las películas similares
+    
