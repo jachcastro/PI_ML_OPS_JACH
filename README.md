@@ -52,6 +52,7 @@ y para el API quedaría
 - API
     - https://pi-ml-ops-na32.onrender.com/docs
 - Video
+    - https://drive.google.com/drive/folders/1QqJKcEb8_8_VXuecfCz_ppcAxDxiuSc0?usp=sharing
 - Repositorio
     - https://github.com/jachcastro/PI_ML_OPS_JACH/blob/main/README.md
 - Datasets 
