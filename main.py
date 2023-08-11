@@ -183,7 +183,7 @@ def obtener_director(Nombre_Director: str):
 # ML
 merged_df = pd.read_csv("5_datasets_ml/movies_dataset_cleaned_ml.csv")
 # Seleccionar los primeros n registros
-half_rows = int(len(merged_df) * 0.9)
+half_rows = int(len(merged_df) * 0.5)
 merged_df = merged_df.head(half_rows)
 
 # Crear una matriz TF-IDF para las descripciones de las películas
